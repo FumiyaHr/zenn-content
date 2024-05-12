@@ -111,11 +111,28 @@ PLATEAU SDK-AR-Extensions for Unityの[1. サンプルを用いたARアプリケ
 
 ### 5.2. [サンプルシーンを設定する](https://github.com/Project-PLATEAU/PLATEAU-SDK-AR-Extensions-for-Unity?tab=readme-ov-file#1-2-%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB%E3%82%B7%E3%83%BC%E3%83%B3%E3%82%92%E8%A8%AD%E5%AE%9A%E3%81%99%E3%82%8B)
 
-Assets/Samples/PLATEAU AR Extensions for Unity/${AR Extensions バージョン}/AR Samples/Scenes/Sample01_PlateauSdkAR.unity を開きます。
+1. Assets/Samples/PLATEAU AR Extensions for Unity/${AR Extensions バージョン}/AR Samples/Scenes/Sample01_PlateauSdkAR.unity を開きます。
+2. TMP Importerが表示されるため、 `Import TMP Essentials` を選択します。
+    ![](/images/articles/plateau-sdk-ar-sample-manual/5-2-2-1.png)
 
-### 5.3. [ビルド設定にシーンを追加する](https://github.com/Project-PLATEAU/PLATEAU-SDK-AR-Extensions-for-Unity?tab=readme-ov-file#1-5-%E3%83%93%E3%83%AB%E3%83%89%E8%A8%AD%E5%AE%9A%E3%81%AB%E3%82%B7%E3%83%BC%E3%83%B3%E3%82%92%E8%BF%BD%E5%8A%A0%E3%81%99%E3%82%8B)
+### 5.3. unitychanのマテリアルエラー（マゼンダ）を修正する
 
-### 5.4. [アプリケーションをビルドして端末にインストールする](https://github.com/Project-PLATEAU/PLATEAU-SDK-AR-Extensions-for-Unity?tab=readme-ov-file#1-6-%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%92%E3%83%93%E3%83%AB%E3%83%89%E3%81%97%E3%81%A6%E7%AB%AF%E6%9C%AB%E3%81%AB%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%81%99%E3%82%8B)
+1. Hierarchy内のunitychanを選択するとマテリアルエラーになっています
+    ![](/images/articles/plateau-sdk-ar-sample-manual/5-2-3-1.png)
+    *Platformが `Windows, Mac, Linux` の場合*
+
+    ![](/images/articles/plateau-sdk-ar-sample-manual/5-2-3-2.png)
+    *5.5. アプリケーションをビルドして端末にインストールする でPlatformを `Android` にした場合*
+2. Unityのメニューバーから `Window` -> `Package Manager` を開く
+3. Package Managerの `+` ボタンから `Add package from git URL...` を選択する
+    ![](/images/articles/plateau-sdk-ar-sample-manual/5-2-3-3.png)
+4. `com.unity.toonshader` と入力して `Add` を選択する
+5. マテリアルエラーが修正される
+    ![](/images/articles/plateau-sdk-ar-sample-manual/5-2-3-4.png)
+
+### 5.4. [ビルド設定にシーンを追加する](https://github.com/Project-PLATEAU/PLATEAU-SDK-AR-Extensions-for-Unity?tab=readme-ov-file#1-5-%E3%83%93%E3%83%AB%E3%83%89%E8%A8%AD%E5%AE%9A%E3%81%AB%E3%82%B7%E3%83%BC%E3%83%B3%E3%82%92%E8%BF%BD%E5%8A%A0%E3%81%99%E3%82%8B)
+
+### 5.5. [アプリケーションをビルドして端末にインストールする](https://github.com/Project-PLATEAU/PLATEAU-SDK-AR-Extensions-for-Unity?tab=readme-ov-file#1-6-%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%92%E3%83%93%E3%83%AB%E3%83%89%E3%81%97%E3%81%A6%E7%AB%AF%E6%9C%AB%E3%81%AB%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%81%99%E3%82%8B)
 
 ## 6. 最後に
 
@@ -125,3 +142,4 @@ Assets/Samples/PLATEAU AR Extensions for Unity/${AR Extensions バージョン}/
 - 4.2. PLATEAU SDK for Unityのインストール
 - 8. Renderer-Featuresを設定する
 - 4.6. Cesium for Unityのインストール
+- 5.3. unitychanのマテリアルエラー（マゼンダ）を修正する
