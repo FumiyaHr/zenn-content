@@ -3,7 +3,7 @@ title: "PLATEAU SDK-AR-Extensions for Unityのサンプルを動かす"
 emoji: "🏙️"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: [plateau, unity, ar, arcore, geospatialapi]
-published: false
+published: true
 ---
 
 ## 1. 概要
