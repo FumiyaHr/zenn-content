@@ -103,9 +103,9 @@ PLATEAU SDK-AR-Extensions for Unityの3DTilesを用いたサンプルを使わ�
     ![](/images/articles/plateau-sdk-ar-sample-manual/4-2-1-1.png)
 4. 1でダウンロードした**com.cesium.unity-1.6.3.tgz** を選択する
 
-## 5. 手順 - サンプルの実行
+## 5. 手順 - サンプルの環境構築
 
-PLATEAU SDK-AR-Extensions for Unityの[1. サンプルを用いたARアプリケーションの体験](https://github.com/Project-PLATEAU/PLATEAU-SDK-AR-Extensions-for-Unity?tab=readme-ov-file#1-%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB%E3%82%92%E7%94%A8%E3%81%84%E3%81%9Far%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AE%E4%BD%93%E9%A8%93)を参考にしていただけれ問題ありませんが、こちらにも必要な部分をピックアップして記載します。
+PLATEAU SDK-AR-Extensions for Unityの[1. サンプルを用いたARアプリケーションの体験](https://github.com/Project-PLATEAU/PLATEAU-SDK-AR-Extensions-for-Unity?tab=readme-ov-file#1-%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB%E3%82%92%E7%94%A8%E3%81%84%E3%81%9Far%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AE%E4%BD%93%E9%A8%93)と[5. ARオクルージョン機能の利用方法](https://github.com/Project-PLATEAU/PLATEAU-SDK-AR-Extensions-for-Unity?tab=readme-ov-file#5-ar%E3%82%AA%E3%82%AF%E3%83%AB%E3%83%BC%E3%82%B8%E3%83%A7%E3%83%B3%E6%A9%9F%E8%83%BD%E3%81%AE%E5%88%A9%E7%94%A8%E6%96%B9%E6%B3%95)を参考にサンプルの実行環境を構築します。
 
 ### 5.1. [AR Extensions サンプルのインポート](https://github.com/Project-PLATEAU/PLATEAU-SDK-AR-Extensions-for-Unity?tab=readme-ov-file#1-1-ar-extensions-%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB%E3%81%AE%E3%82%A4%E3%83%B3%E3%83%9D%E3%83%BC%E3%83%88)
 
@@ -130,11 +130,91 @@ PLATEAU SDK-AR-Extensions for Unityの[1. サンプルを用いたARアプリケ
 5. マテリアルエラーが修正される
     ![](/images/articles/plateau-sdk-ar-sample-manual/5-2-3-4.png)
 
-### 5.4. [ビルド設定にシーンを追加する](https://github.com/Project-PLATEAU/PLATEAU-SDK-AR-Extensions-for-Unity?tab=readme-ov-file#1-5-%E3%83%93%E3%83%AB%E3%83%89%E8%A8%AD%E5%AE%9A%E3%81%AB%E3%82%B7%E3%83%BC%E3%83%B3%E3%82%92%E8%BF%BD%E5%8A%A0%E3%81%99%E3%82%8B)
+### 5.4. [遮蔽オブジェクトマテリアルの作成](https://github.com/Project-PLATEAU/PLATEAU-SDK-AR-Extensions-for-Unity?tab=readme-ov-file#5-1-%E9%81%AE%E8%94%BD%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E3%83%9E%E3%83%86%E3%83%AA%E3%82%A2%E3%83%AB%E3%81%AE%E4%BD%9C%E6%88%90)
 
-### 5.5. [アプリケーションをビルドして端末にインストールする](https://github.com/Project-PLATEAU/PLATEAU-SDK-AR-Extensions-for-Unity?tab=readme-ov-file#1-6-%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%92%E3%83%93%E3%83%AB%E3%83%89%E3%81%97%E3%81%A6%E7%AB%AF%E6%9C%AB%E3%81%AB%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%81%99%E3%82%8B)
+:::message
+PLATEAU SDK-AR-Extensions for Unityにはサンプルの `AROccluder` マテリアルが含まれています。
+- Assets/Samples/PLATEAU AR Extensions for Unity/${AR Extensions バージョン}/AR Samples/Materials/AROccluder
 
-## 6. 最後に
+このため**このマテリアルを利用することを推奨します。**
+新しいマテリアルを作成したい場合はこの章の手順で作成してください。
+:::
+
+1. `Create` -> `Material` から新しいマテリアルを作成する
+    - 本記事ではこのマテリアルを `AROccluder` としています
+2. `Base Map` に任意の色に変更する
+    ![](/images/articles/plateau-sdk-ar-sample-manual/5-4-2-1.png)
+
+### 5.5. [レイヤーの作成](https://github.com/Project-PLATEAU/PLATEAU-SDK-AR-Extensions-for-Unity?tab=readme-ov-file#5-2-%E3%83%AC%E3%82%A4%E3%83%A4%E3%83%BC%E3%81%AE%E4%BD%9C%E6%88%90)
+
+:::message
+レイヤー作成のドキュメントには `レイヤーの順序は他の要件を考慮の上設定してください。` とありますが、サンプルシーンでは下記記載のレイヤーを前提に作成されていますので、サンプルに合わせてレイヤーを設定します。
+:::
+
+1. `Project Settings` > `Tags and Layers` を開く
+2. **User Layer 6** に遮蔽される側のレイヤー `AR Occludee`、**User layer 7** に遮蔽する側のレイヤー `AR Occluder` を設定する
+    ![](/images/articles/plateau-sdk-ar-sample-manual/5-5-2-1.png)
+
+### 5.6. [URP描画設定にレイヤーを設定](https://github.com/Project-PLATEAU/PLATEAU-SDK-AR-Extensions-for-Unity?tab=readme-ov-file#5-4-urp%E6%8F%8F%E7%94%BB%E8%A8%AD%E5%AE%9A%E3%81%AB%E3%83%AC%E3%82%A4%E3%83%A4%E3%83%BC%E3%82%92%E8%A8%AD%E5%AE%9A)
+
+1. ［Project］ウィンドウで、`Assets` > `Settings`に含まれるURPの描画設定項目を開く
+    - 使用するURP描画設定項目がわからなければ、Settings以下のURP-XXXXのすべてに対して追加してください
+2. `Filtering` > `Opaque Layer Mask` から遮蔽される側のレイヤー `AR Occludee` のチェックを外す
+    ![](/images/articles/plateau-sdk-ar-sample-manual/5-6-2-1.png)
+3. `Filtering` > `Transparent Layer Mask` から遮蔽される側のレイヤー `AR Occludee` のチェックを外す
+    ![](/images/articles/plateau-sdk-ar-sample-manual/5-6-2-2.png)
+4. **AR Background Renderer Feature** が設定されていない場合は、追加する
+    ![](/images/articles/plateau-sdk-ar-sample-manual/5-6-4-1.png)
+5. **Plateau AR Occlusion Renderer Feature** を追加する
+    ![](/images/articles/plateau-sdk-ar-sample-manual/5-6-5-1.png)
+    ![](/images/articles/plateau-sdk-ar-sample-manual/5-6-5-2.png)
+6. **AR Occludee Mask** に遮蔽される側のレイヤー `AR Occludee` を設定する
+7. **AR Occluder Mask** に遮蔽する側のレイヤー `AR Occluder` を設定する
+8. **AR Occluder Material** に遮蔽オブジェクトマテリアルを設定する
+    - 作成していない場合は `Assets/Samples/PLATEAU AR Extensions for Unity/${AR Extensions バージョン}/AR Samples/Materials/AROccluder`
+    - 作成した場合は作成したマテリアル
+    ![](/images/articles/plateau-sdk-ar-sample-manual/5-6-8-1.png)
+
+### 5.7. [遮蔽するオブジェクトのレイヤーを変更](https://github.com/Project-PLATEAU/PLATEAU-SDK-AR-Extensions-for-Unity?tab=readme-ov-file#5-6-%E9%81%AE%E8%94%BD%E3%81%99%E3%82%8B%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E3%81%AE%E3%83%AC%E3%82%A4%E3%83%A4%E3%83%BC%E3%82%92%E5%A4%89%E6%9B%B4)
+
+1. Hierarchyで `PlateauSdkCityModel` > `unitychan` を選択する
+2. Inspectorで `Layer` を遮蔽される側のレイヤー `AR Occludee` に設定する
+    - サンプルに合わせてレイヤー設定を行なっていると既に設定済みになっています
+    ![](/images/articles/plateau-sdk-ar-sample-manual/5-7-2-1.png)
+
+### 5.8. 遮蔽されるオブジェクトのレイヤーを変更
+1. Hierarchyで `PlateauSdkCityModel` > `13100_tokyo23-ku_2020_citygml_3_2_op` を選択する
+2. Inspectorで `Layer` を遮蔽する側のレイヤー `AR Occluder` に設定する
+    - サンプルに合わせてレイヤー設定を行なっていると既に設定済みになっています
+    ![](/images/articles/plateau-sdk-ar-sample-manual/5-8-1-1.png)
+
+### 5.9. [遮蔽するオブジェクトのマテリアルをZWriteに変更](https://github.com/Project-PLATEAU/PLATEAU-SDK-AR-Extensions-for-Unity?tab=readme-ov-file#5-7-%E9%81%AE%E8%94%BD%E3%81%99%E3%82%8B%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E3%81%AE%E3%83%9E%E3%83%86%E3%83%AA%E3%82%A2%E3%83%AB%E3%82%92zwrite%E3%81%AB%E5%A4%89%E6%9B%B4)
+
+1. メニューの `PLATEAU` > `PLATEAU Toolkit` > `AR Extensions` を開く
+    ![](/images/articles/plateau-sdk-ar-sample-manual/5-9-1-1.png)
+2. マテリアルに **ZWrite** マテリアルを設定する
+    - **ZWrite** マテリアルは `Packages > PLATEAU SDK-AR-Extensions for Unity > PlateauToolkit.AR > Runtime > Materials > ZWrite` にあります
+    - **ARオクルージョン遮蔽用マテリアルの参照を取得** ボタンを押すと自動的に設定されます
+    ![](/images/articles/plateau-sdk-ar-sample-manual/5-9-2-1.png)
+3. `シーン上のの年モデルのマテリアルを変更` ボタンを押す
+
+### 5.10. 遮蔽オブジェクトマテリアルの設定
+
+1. Hierarchyで `AR` > `ARSettingsController` を選択する
+2. Inspectorで **AR Settings Controller** コンポーネントの **AR Occluder Material** に遮蔽オブジェクトマテリアルを設定する
+    - 作成していない場合は `Assets/Samples/PLATEAU AR Extensions for Unity/${AR Extensions バージョン}/AR Samples/Materials/AROccluder`
+    - 作成した場合は作成したマテリアル
+    ![](/images/articles/plateau-sdk-ar-sample-manual/5-10-1-1.png)
+
+## 6. 手順 - サンプルの実行
+
+PLATEAU SDK-AR-Extensions for Unityの[1. サンプルを用いたARアプリケーションの体験](https://github.com/Project-PLATEAU/PLATEAU-SDK-AR-Extensions-for-Unity?tab=readme-ov-file#1-%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB%E3%82%92%E7%94%A8%E3%81%84%E3%81%9Far%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AE%E4%BD%93%E9%A8%93)を参考にしていただけれ問題ありません。
+
+### 6.1. [ビルド設定にシーンを追加する](https://github.com/Project-PLATEAU/PLATEAU-SDK-AR-Extensions-for-Unity?tab=readme-ov-file#1-5-%E3%83%93%E3%83%AB%E3%83%89%E8%A8%AD%E5%AE%9A%E3%81%AB%E3%82%B7%E3%83%BC%E3%83%B3%E3%82%92%E8%BF%BD%E5%8A%A0%E3%81%99%E3%82%8B)
+
+### 6.2. [アプリケーションをビルドして端末にインストールする](https://github.com/Project-PLATEAU/PLATEAU-SDK-AR-Extensions-for-Unity?tab=readme-ov-file#1-6-%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%92%E3%83%93%E3%83%AB%E3%83%89%E3%81%97%E3%81%A6%E7%AB%AF%E6%9C%AB%E3%81%AB%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%81%99%E3%82%8B)
+
+## 7. 最後に
 
 始めて触ってみた時に下記がハマりポイントでしたのでまとめてみました。
 これらを回避してPLATEAUで楽しんでみてください。
@@ -143,3 +223,4 @@ PLATEAU SDK-AR-Extensions for Unityの[1. サンプルを用いたARアプリケ
 - 8. Renderer-Featuresを設定する
 - 4.6. Cesium for Unityのインストール
 - 5.3. unitychanのマテリアルエラー（マゼンダ）を修正する
+- 5.10. 遮蔽オブジェクトマテリアルの設定
