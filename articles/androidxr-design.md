@@ -3,7 +3,7 @@ title: "Android XR向けのUIデザインについて"
 emoji: "😎"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["Android", "AndroidXR"]
-published: false
+published: true 
 publication_name: "hololab"
 ---
 
