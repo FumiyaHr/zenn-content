@@ -3,7 +3,7 @@ title: "複数PDFからなる規約情報をNotebookLMへ集約してみた"
 emoji: "📒"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["notebooklm"]
-published: false
+published: true
 publication_name: "hololab"
 ---
 
