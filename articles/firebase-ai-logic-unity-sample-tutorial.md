@@ -3,7 +3,7 @@ title: "Firebase AI Logic for Unity実践ガイド：環境構築からサンプ
 emoji: "🚀"
 type: "tech"
 topics: ["firebase", "unity", "ai", "xr", "gemini"]
-published: false
+published: true
 publication_name: "hololab"
 ---
 
