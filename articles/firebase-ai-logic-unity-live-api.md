@@ -3,7 +3,7 @@ title: "Firebase AI Logic for Unity：Live API実装ガイド　リアルタイ�
 emoji: "🎤"
 type: "tech"
 topics: ["firebase", "unity", "ai", "gemini", "live-api"]
-published: false
+published: true
 publication_name: "hololab"
 ---
 
